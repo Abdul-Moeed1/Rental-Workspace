@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Product = require("../models/product");
 const jwt = require("jsonwebtoken");
 
 const signUp = async (req, res) => {
@@ -57,4 +58,25 @@ const logIn = async (req, res) => {
 
 }
 
-module.exports = { signUp, logIn };
+const postProduct = async (req, res) => {
+
+    try {
+        console.log(req.body);
+        const {name , discription , dailyRent , city, image} = req.body;
+        const ownerId = req.person._id.toString();
+        const product = new Product({name , discription , dailyRent , city, image, ownerId });
+        const data = await product.save();
+        console.log(data);
+        res.send("Product added Successfully");
+
+    } catch (error) {
+       
+            console.log(error);
+            res.status(400);
+            res.send("Cant added product");
+       
+    }
+
+}
+
+module.exports = { signUp, logIn , postProduct };
