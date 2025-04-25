@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@theme {
+    /* --breakpoint-m875: 875px; */
+    /* --breakpoint-2xl: 100rem;
+    --breakpoint-3xl: 120rem; */
+}
+
+body{
+    /* background-color: rgb(24, 24, 84); */
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
